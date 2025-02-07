@@ -1,4 +1,4 @@
-import http from "http";
+import http from "node:http";
 
 const users = [];
 
@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
 
   if (method === "POST" && url === "/users") {
     users.push({ id: 1, name: "John Doe", email: "email@" });
-    return res.end("Criar");
+    return res.writeHead(201).end();
   }
 
   return res.writeHead(404).end();
